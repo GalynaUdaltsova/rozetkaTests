@@ -1,44 +1,32 @@
 package com.study.rozetka.tests;
 
+import com.study.rozetka.pages.HomePage;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class TestSearch extends BaseTest {
 
+    private static final int DEFAULT_TIMEOUT = 10;
+
     @Test
-    public void search() {
-        driver.get("https://rozetka.com.ua/");
+    public void searchAndFilter() {
+        HomePage homePage = new HomePage(driver);
+        homePage.open();
+        Assert.assertEquals(true, homePage.isPageValid());
 
-        String title = driver.getTitle();
-        Assert.assertEquals("Интернет-магазин ROZETKA™: официальный сайт самого популярного " +
-                "онлайн-гипермаркета в Украине", title);
-
-//        WebElement search = driver.findElementByName("search");
-        WebElement search = driver.findElement(By.xpath("//input[@class='search-form__input " +
+        WebElement search = homePage.findElementBy(By.xpath("//input[@class='search-form__input " +
                 "ng-untouched ng-pristine ng-valid']"));
-        search.clear();
         search.sendKeys("IPhone 11");
+        search.click();
 
-        WebDriverWait webDriverWait = new WebDriverWait(driver, 20);
-        webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@class='button " +
-                "button_color_green button_size_medium search-form__submit']")));
-
-        driver.findElement(By.xpath("//button[@class='button button_color_green button_size_medium " +
-                "search-form__submit']")).click();
-        driver.findElement(By.xpath("//span[text()='Мобильные телефоны']")).click();
-//        driver.findElement(By.xpath("//input[@id='Готов к отправке'}")).click();
-
-
-
-
-//        List<WebElement> elements = driver.findElementsByClassName("kjdbv");
-////        elements.stream().sorted(Comparator.comparingInt(el ->((WebElement) el).findElement(By.xpath("jhgefg")).))
-
-
+        homePage.clickElementByAndWait(By.xpath("//button[@class='button button_color_green button_size_medium " +
+                "search-form__submit']"), DEFAULT_TIMEOUT);
+        homePage.clickElementByAndWait(By.xpath("//span[text()='Мобильные телефоны']"), DEFAULT_TIMEOUT);
+        homePage.clickElementByAndWait(By.xpath("//label[contains(text(),'Готов к отправке')]"), DEFAULT_TIMEOUT);
+        homePage.clickElementByAndWait(By.xpath("//option[text()=' От дорогих к дешевым ']"), DEFAULT_TIMEOUT);
     }
-
 }
+
+
