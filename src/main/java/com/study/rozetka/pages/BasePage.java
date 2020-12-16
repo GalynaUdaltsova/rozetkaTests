@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import waiters.Waiter;
 
 public abstract class BasePage {
 
@@ -32,9 +33,8 @@ public abstract class BasePage {
         }
     }
 
-    public void clickElementByAndWait(By by, long timeOutInSeconds) {
-        WebDriverWait webDriverWait = new WebDriverWait(driver, timeOutInSeconds);
-        webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(by));
+    public void clickElement(By by, long timeOutInSeconds) {
+        Waiter.wait(driver, timeOutInSeconds);
         findElementBy(by).click();
     }
 
