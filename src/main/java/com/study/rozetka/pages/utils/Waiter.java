@@ -1,4 +1,4 @@
-package waiters;
+package com.study.rozetka.pages.utils;
 
 import org.openqa.selenium.WebDriver;
 

@@ -1,11 +1,10 @@
 package com.study.rozetka.pages;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import waiters.Waiter;
+import com.study.rozetka.pages.utils.Waiter;
 
 public abstract class BasePage {
 
@@ -19,18 +18,13 @@ public abstract class BasePage {
         this.pageTitle = pageTitle;
     }
 
-    public void open() {
+    public void openPage() {
         driver.get(pageUrl);
     }
 
-    public boolean isPageValid() {
+    public void isPageTitleValid() {
         String title = driver.getTitle();
-        if (pageTitle.equals(title)) {
-            return true;
-        } else {
-            System.out.println("Page title is wrong, \nexpected: " + pageTitle + "\nactual: " + title);
-            return false;
-        }
+        Assert.assertEquals(title, pageTitle);
     }
 
     public void clickElement(By by, long timeOutInSeconds) {
