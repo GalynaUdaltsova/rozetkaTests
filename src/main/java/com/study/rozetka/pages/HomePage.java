@@ -8,15 +8,15 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class HomePage extends BasePage {
 
     public static final String HOME_PAGE_URL = "https://rozetka.com.ua/";
-    public static final String HOME_PAGE_TITLE = "Интернет-магазин ROZETKA™: официальный сайт самого популярного " +
-            "онлайн-гипермаркета в Украине";
+    public static final String HOME_PAGE_TITLE = "Інтернет-магазин ROZETKA™: офіційний сайт найпопулярнішого " +
+            "онлайн-гіпермаркету в Україні";
 
     public static final String SEARCH_FORM_CLASS = "search-form__submit";
     public static final String SEARCH_FORM_INPUT_CLASS = "search-form__input";
     public static final String SUBMIT_LOGIN_CLASS = "auth-modal__submit";
-    public static final String FILTER_MOBILE_PHONE_TEXT = "Мобильные телефоны";
-    public static final String FILTER_READY_TO_SHIP = "Готов к отправке";
-    public static final String SORTING_FROM_EXPENSIVE_TO_CHEAP_TEXT = " От дорогих к дешевым ";
+    public static final String FILTER_MOBILE_PHONE_TEXT = "Мобільні телефони";
+    public static final String FILTER_READY_TO_SHIP = "Готовий до відправлення";
+    public static final String SORTING_FROM_EXPENSIVE_TO_CHEAP_TEXT = " Від дорогих до дешевих ";
     public static final String ENTER_LOGIN_ID = "auth_email";
     public static final String ENTER_PASSWORD_ID = "auth_pass";
     public static final String BUTTON_LOGIN = "header-topline__user-link button--link";
@@ -49,5 +49,7 @@ public class HomePage extends BasePage {
         clickElement(XpathUtils.buildContainsClass(Element.BUTTON, SEARCH_FORM_CLASS), DEFAULT_TIMEOUT);
         clickElement(XpathUtils.buildTextEquals(Element.OPTION, SORTING_FROM_EXPENSIVE_TO_CHEAP_TEXT), DEFAULT_TIMEOUT);
     }
+
+
 
 }
