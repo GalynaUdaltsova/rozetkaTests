@@ -18,11 +18,8 @@ public abstract class BasePage {
         this.pageTitle = pageTitle;
     }
 
-    public void openPage() {
+    public void openPageAndCheckValidTitle() {
         driver.get(pageUrl);
-    }
-
-    public void isPageTitleValid() {
         String title = driver.getTitle();
         Assert.assertEquals(title, pageTitle);
     }

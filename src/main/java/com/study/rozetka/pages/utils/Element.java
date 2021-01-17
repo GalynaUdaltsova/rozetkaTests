@@ -2,8 +2,8 @@ package com.study.rozetka.pages.utils;
 
 public enum Element {
 
-    BUTTON("button"), INPUT("input"), SPAN("span"), OPTION("option"),
-    LABEL("label");
+    BUTTON("button"), INPUT("input"), SPAN("span"),
+    OPTION("option"), LABEL("label"), LI ("li");
 
     private String elementName;
 
