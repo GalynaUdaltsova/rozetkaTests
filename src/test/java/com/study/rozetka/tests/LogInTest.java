@@ -10,13 +10,13 @@ public class LogInTest extends BaseTest {
 
     @Test
     public void checkLoginToSite() {
-        HomePage homePage = new HomePage(driver);
-        homePage.openPageAndCheckValidTitle();
-
-        homePage.executeLogin("gudalcova@ukr.net", "Password1");
-
-        ProfilePage profilePage = new ProfilePage(driver);
-        profilePage.openPageAndCheckValidTitle();
+//        HomePage homePage = new HomePage(driver);
+//        homePage.openPageAndCheckValidTitle();
+//
+//        homePage.executeLogin("gudalcova@ukr.net", "Password1");
+//
+//        ProfilePage profilePage = new ProfilePage(driver);
+//        profilePage.openPageAndCheckValidTitle();
 
     }
 }
