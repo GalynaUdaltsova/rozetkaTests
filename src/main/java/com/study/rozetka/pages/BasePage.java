@@ -6,6 +6,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import static java.nio.charset.StandardCharsets.UTF_8;
+
 public abstract class BasePage {
 
     protected ChromeDriver driver;
@@ -21,6 +23,9 @@ public abstract class BasePage {
     public void openPageAndCheckValidTitle() {
         driver.get(pageUrl);
         String title = driver.getTitle();
+        byte[] bytes = pageTitle.getBytes(UTF_8);
+        String s = new String(bytes);
+        System.out.println("title  ----  " + s);
         Assert.assertEquals(title, pageTitle);
     }
 
