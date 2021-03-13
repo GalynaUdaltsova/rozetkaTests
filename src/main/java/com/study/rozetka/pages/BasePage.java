@@ -6,6 +6,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import com.study.rozetka.pages.utils.Waiter;
 
+import java.io.UnsupportedEncodingException;
+
+import static java.nio.charset.StandardCharsets.UTF_8;
+
 public abstract class BasePage {
 
     protected ChromeDriver driver;
@@ -18,10 +22,12 @@ public abstract class BasePage {
         this.pageTitle = pageTitle;
     }
 
-    public void openPageAndCheckValidTitle() {
+    public void openPageAndCheckValidTitle() throws UnsupportedEncodingException {
         driver.get(pageUrl);
         String title = driver.getTitle();
-        Assert.assertEquals(title, pageTitle);
+        byte[] ptext = title.getBytes("ISO_8859_1");
+        String value = new String(ptext, UTF_8);
+        Assert.assertEquals(value, pageTitle);
     }
 
     public void clickElement(By by, long timeOutInSeconds) {

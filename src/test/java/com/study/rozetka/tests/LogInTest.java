@@ -4,10 +4,12 @@ import com.study.rozetka.pages.HomePage;
 import com.study.rozetka.pages.ProfilePage;
 import org.junit.Test;
 
+import java.io.UnsupportedEncodingException;
+
 public class LogInTest extends BaseTest {
 
     @Test
-    public void checkLoginToSite() {
+    public void checkLoginToSite() throws UnsupportedEncodingException {
         HomePage homePage = new HomePage(driver);
         homePage.openPageAndCheckValidTitle();
 
