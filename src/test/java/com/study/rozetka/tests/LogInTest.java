@@ -9,7 +9,7 @@ import java.io.UnsupportedEncodingException;
 public class LogInTest extends BaseTest {
 
     @Test
-    public void checkLoginToSite() throws UnsupportedEncodingException {
+    public void checkLoginToSite() {
         HomePage homePage = new HomePage(driver);
         homePage.openPageAndCheckValidTitle();
 

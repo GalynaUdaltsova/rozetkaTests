@@ -1,14 +1,10 @@
 package com.study.rozetka.pages;
 
+import com.study.rozetka.pages.utils.Waiter;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import com.study.rozetka.pages.utils.Waiter;
-
-import java.io.UnsupportedEncodingException;
-
-import static java.nio.charset.StandardCharsets.UTF_8;
 
 public abstract class BasePage {
 
@@ -22,16 +18,10 @@ public abstract class BasePage {
         this.pageTitle = pageTitle;
     }
 
-    public void openPageAndCheckValidTitle() throws UnsupportedEncodingException {
+    public void openPageAndCheckValidTitle() {
         driver.get(pageUrl);
         String title = driver.getTitle();
-        byte[] ptext = title.getBytes();
-        String value = new String(ptext, UTF_8);
-        System.out.println("From site ------------- " + value);
-        byte[] bytes = pageTitle.getBytes();
-        String pageTitleConverted = new String(bytes, UTF_8);
-        System.out.println("from page  --------- " + pageTitleConverted);
-        Assert.assertEquals(value, pageTitleConverted);
+        Assert.assertEquals(title, pageTitle);
     }
 
     public void clickElement(By by, long timeOutInSeconds) {
