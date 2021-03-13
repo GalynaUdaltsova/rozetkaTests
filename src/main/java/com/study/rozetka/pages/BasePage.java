@@ -25,9 +25,13 @@ public abstract class BasePage {
     public void openPageAndCheckValidTitle() throws UnsupportedEncodingException {
         driver.get(pageUrl);
         String title = driver.getTitle();
-        byte[] ptext = title.getBytes("ISO_8859_1");
+        byte[] ptext = title.getBytes();
         String value = new String(ptext, UTF_8);
-        Assert.assertEquals(value, pageTitle);
+        System.out.println("From site ------------- " + value);
+        byte[] bytes = pageTitle.getBytes();
+        String pageTitleConverted = new String(bytes, UTF_8);
+        System.out.println("from page  --------- " + pageTitleConverted);
+        Assert.assertEquals(value, pageTitleConverted);
     }
 
     public void clickElement(By by, long timeOutInSeconds) {
