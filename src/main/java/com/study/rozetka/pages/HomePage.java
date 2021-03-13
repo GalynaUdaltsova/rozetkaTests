@@ -7,19 +7,18 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class HomePage extends BasePage {
 
-    public static final String HOME_PAGE_URL = "https://rozetka.com.ua/";
-    public static final String HOME_PAGE_TITLE = "Інтернет-магазин ROZETKA™: офіційний сайт найпопулярнішого " +
+    private static final String HOME_PAGE_URL = "https://rozetka.com.ua/ua/";
+    private static final String HOME_PAGE_TITLE = "Інтернет-магазин ROZETKA™: офіційний сайт найпопулярнішого " +
             "онлайн-гіпермаркету в Україні";
 
-    public static final String SEARCH_FORM_CLASS = "search-form__submit";
-    public static final String SEARCH_FORM_INPUT_CLASS = "search-form__input";
-    public static final String SUBMIT_LOGIN_CLASS = "auth-modal__submit";
-    public static final String FILTER_MOBILE_PHONE_TEXT = "Мобільні телефони";
-    public static final String FILTER_READY_TO_SHIP = "Готовий до відправлення";
-    public static final String SORTING_FROM_EXPENSIVE_TO_CHEAP_TEXT = " Від дорогих до дешевих ";
-    public static final String ENTER_LOGIN_ID = "auth_email";
-    public static final String ENTER_PASSWORD_ID = "auth_pass";
-    public static final String BUTTON_LOGIN = "header-topline__user-link button--link";
+    private static final String SEARCH_FORM_CLASS = "search-form__submit";
+    private static final String SEARCH_FORM_INPUT_CLASS = "search-form__input";
+    private static final String SUBMIT_LOGIN_CLASS = "auth-modal__submit";
+    private static final String FILTER_MOBILE_PHONE_TEXT = "Мобільні телефони";
+    private static final String FILTER_READY_TO_SHIP = "Готовий до відправлення";
+    private static final String SORTING_FROM_EXPENSIVE_TO_CHEAP_TEXT = " Від дорогих до дешевих ";
+    private static final String ENTER_LOGIN_ID = "auth_email";
+    private static final String ENTER_PASSWORD_ID = "auth_pass";
 
     private static final int DEFAULT_TIMEOUT = 10;
 
@@ -28,7 +27,7 @@ public class HomePage extends BasePage {
     }
 
     public void executeLogin(String email, String password) {
-        clickElement(XpathUtils.buildContainsClass(Element.BUTTON, BUTTON_LOGIN), DEFAULT_TIMEOUT);
+        clickElement(By.xpath("//rz-user/button[contains(@class,'header__button')]"), DEFAULT_TIMEOUT);
         findElementBy(XpathUtils.buildIdLocator(ENTER_LOGIN_ID)).sendKeys(email);
         findElementBy(XpathUtils.buildIdLocator(ENTER_PASSWORD_ID)).sendKeys(password);
         clickElement(XpathUtils.buildContainsClass(Element.BUTTON, SUBMIT_LOGIN_CLASS), DEFAULT_TIMEOUT);
