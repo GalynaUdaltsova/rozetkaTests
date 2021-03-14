@@ -21,9 +21,6 @@ public abstract class BasePage {
     public void openPageAndCheckValidTitle() {
         driver.get(pageUrl);
         String title = driver.getTitle();
-//        byte[] bytes = pageTitle.getBytes(ISO_8859_1);
-//        String s = new String(bytes);
-//        System.out.println("title  ----  " + s);
         Assert.assertEquals(title, pageTitle);
     }
 
