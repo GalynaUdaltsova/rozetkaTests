@@ -19,6 +19,7 @@ public class HomePage extends BasePage {
     private static final String SORTING_FROM_EXPENSIVE_TO_CHEAP_TEXT = " Від дорогих до дешевих ";
     private static final String ENTER_LOGIN_ID = "auth_email";
     private static final String ENTER_PASSWORD_ID = "auth_pass";
+    private static final String HEADER_BUTTON = "header__button";
 
     private static final int DEFAULT_TIMEOUT = 10;
 
@@ -27,10 +28,10 @@ public class HomePage extends BasePage {
     }
 
     public void executeLogin(String email, String password) {
-        clickElement(By.xpath("//rz-user/button[contains(@class,'header__button')]"), DEFAULT_TIMEOUT);
-        findElementBy(XpathUtils.buildIdLocator(ENTER_LOGIN_ID)).sendKeys(email);
-        findElementBy(XpathUtils.buildIdLocator(ENTER_PASSWORD_ID)).sendKeys(password);
-        clickElement(XpathUtils.buildContainsClass(Element.BUTTON, SUBMIT_LOGIN_CLASS), DEFAULT_TIMEOUT);
+        clickElement(By.xpath(String.format("//rz-user/button[contains(@class,'%s')]", HEADER_BUTTON)), DEFAULT_TIMEOUT);
+        findElementBy(By.xpath(String.format("//*[@id='%s']", ENTER_LOGIN_ID))).sendKeys(email);
+        findElementBy(By.xpath(String.format("//*[@id='%s']", ENTER_PASSWORD_ID))).sendKeys(password);
+        clickElement(By.xpath(String.format("//button[contains(@class, '%s')]", SUBMIT_LOGIN_CLASS)), DEFAULT_TIMEOUT);
     }
 
     public void checkFilterMobilePhone(String productItem) {
@@ -48,7 +49,4 @@ public class HomePage extends BasePage {
         clickElement(XpathUtils.buildContainsClass(Element.BUTTON, SEARCH_FORM_CLASS), DEFAULT_TIMEOUT);
         clickElement(XpathUtils.buildTextEquals(Element.OPTION, SORTING_FROM_EXPENSIVE_TO_CHEAP_TEXT), DEFAULT_TIMEOUT);
     }
-
-
-
 }

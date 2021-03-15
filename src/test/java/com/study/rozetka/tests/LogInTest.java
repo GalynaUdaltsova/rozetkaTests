@@ -15,6 +15,5 @@ public class LogInTest extends BaseTest {
 
         ProfilePage profilePage = new ProfilePage(driver);
         profilePage.openPageAndCheckValidTitle();
-
     }
 }

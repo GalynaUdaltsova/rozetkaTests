@@ -4,7 +4,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class ProfilePage extends BasePage {
 
-    private static final String PROFILE_PAGE_URL = "https://rozetka.com.ua/cabinet/personal-information/";
+    private static final String PROFILE_PAGE_URL = "https://rozetka.com.ua/ua/cabinet/personal-information/";
     private static final String PROFILE_PAGE_TITLE = "ROZETKA — Особисті дані | Особистий кабінет";
 
     public ProfilePage(ChromeDriver driver) {
